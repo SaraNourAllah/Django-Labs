@@ -1,0 +1,10 @@
+{% extends 'courses/base.html'%}
+{% block content %}
+    <h1>{{ course.name }}</h1>
+    <p>Course ID: {{ course.id }}</p>
+    <img src="{{ course.image.url }}" alt="{{ course.name }}" width="300">
+
+    {% if error %}
+        <h1 style = "color :red ; font-size: 30px">{{ error }}</h1>
+    {% endif %}
+{% endblock %}

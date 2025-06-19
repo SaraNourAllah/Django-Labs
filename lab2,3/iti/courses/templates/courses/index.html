@@ -1,0 +1,38 @@
+{% extends 'courses/base.html'%}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<h1>Available Courses</h1>
+
+{% if error %}
+    <h2 style = "color :red ; font-size: 30px">{{ error }}</h2>
+{% endif %}
+
+    <div class="courses-container">
+
+    <table> 
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Image </th>
+        <th> Actions </th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.id }}</td>
+        <td>{{ course.name }}</td>
+        <td><img src="{{ course.image.url }}" alt="{{ course.name }}" width="100"></td>
+        <td>
+            <a href="{% url 'course-detail' course.id %}">View</a>
+            <a href="{% url 'course-delete' course.id %}">Delete</a>
+        </td>
+    </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}
