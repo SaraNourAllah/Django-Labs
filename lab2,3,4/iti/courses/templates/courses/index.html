@@ -14,7 +14,9 @@
 {% endif %}
 
     <div class="courses-container">
-
+        <div>
+            <a href="{% url 'course-create' %}" class="btn btn-primary">Create New Course</a>
+        </div>
     <table> 
     <tr>
         <th> ID </th>
@@ -28,8 +30,9 @@
         <td>{{ course.name }}</td>
         <td><img src="{{ course.image.url }}" alt="{{ course.name }}" width="100"></td>
         <td>
-            <a href="{% url 'course-detail' course.id %}">View</a>
-            <a href="{% url 'course-delete' course.id %}">Delete</a>
+            <a href="{% url 'course-detail' course.id %}" class="btn btn-primary m-1">View</a>
+            <a href="{% url 'course-delete' course.id %}" class="btn btn-primary m-1">Delete</a>
+            <a href="{% url 'course-update' course.id %}" class="btn btn-primary m-1">Update</a>
         </td>
     </tr>
         {% endfor %}
